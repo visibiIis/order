@@ -18,10 +18,12 @@
         "yiisoft/yii2": "~2.0.5",
         "yiisoft/yii2-bootstrap": "~2.0.0",
         "yiisoft/yii2-swiftmailer": "~2.0.0",
-        "mailgun/mailgun-php": "^2.5",
+        "mailgun/mailgun-php": "~1.8",
         "php-http/curl-client": "^1.7",
         "guzzlehttp/psr7": "^1.4",
-        "2amigos/yii2-ckeditor-widget": "^2.1"
+        "2amigos/yii2-ckeditor-widget": "^2.1",
+        "php-http/message": "^1.6",
+        "boundstate/yii2-mailgun": "*"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",

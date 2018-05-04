@@ -55,26 +55,15 @@ class ContactForm extends Model
     public function contact($email)
     {
         if ($this->validate()) {
-            Yii::$app->mailer->compose()
-                ->setTo($email)
-                ->setFrom([$this->email => $this->name])
+            Yii::$app->mailer->compose('layouts/html', ['contactForm' => $form])
+                ->setFrom($this->email)
+                ->setTo(Yii::$app->params['adminEmail'])
                 ->setSubject($this->subject)
-                ->setTextBody($this->body)
+                ->setHtmlBody($this->body)
                 ->send();
 
             return true;
         }
-        
-        $mailGunClient = new Mailgun(self::API);
-        $html = $this->renderHtmlEmail(__DIR__ . self::HTML_PATH);
-
-        $result = $mailGunClient->sendMessage(self::DOMAIN, [
-            'from'      => Yii::$app->params['adminEmail'],
-            'to'        => $this->email,
-            'subject'   => 'Password reset for ' . $user->username,
-            'html'      => $html,
-        ]);
-
         return false;
     }
 }

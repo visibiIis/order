@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use dosamigos\ckeditor\CKEditor;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Order */
@@ -12,7 +13,7 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'description')->textarea(['rows' => 6]) ?>
+    <?= $form->field($model, 'description') ?>
 
     <?= $form->field($model, 'booked')->checkbox() ?>
     

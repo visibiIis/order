@@ -9,6 +9,8 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\web\UploadedFile;
+use yii\filters\AccessControl;
+
 
 /**
  * OrderController implements the CRUD actions for Order model.
@@ -25,6 +27,25 @@ class OrderController extends Controller
                 'class' => VerbFilter::className(),
                 'actions' => [
                     'delete' => ['POST'],
+                ],
+            ],
+            'access' => [
+                'class' => AccessControl::className(),
+                'only' => ['view', 'create', 'delete', 'update'],
+                'rules' => [
+                    [
+                        'allow' => false,
+                        'roles' => ['user'],
+                    ],
+                    [
+                        'allow' => false,
+                        'roles' => ['?'],
+                    ],
+                    [
+                        'actions' => ['view', 'create', 'delete', 'update'],
+                        'allow' => true,
+                        'roles' => ['admin'],
+                    ],
                 ],
             ],
         ];

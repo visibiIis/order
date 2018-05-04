@@ -31,11 +31,6 @@ $config = [
         ],
         'mailer' => [
             'class' => 'boundstate\mailgun\Mailer',
-            // send all mails to a file by default. You have to set
-            // 'useFileTransport' to false and configure a transport
-            // for the mailer to send real emails.
-
-            //'useFileTransport' => false,
             'key' => 'key-2308fdc2649b85c1005aafc460813834',
             'domain' => 'sandboxab7e76d644b145b0979bd43be6744320.mailgun.org',
         ],

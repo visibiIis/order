@@ -26,6 +26,9 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
 
+            'table',
+
+
             'description:ntext',
 
 
@@ -47,8 +50,6 @@ $this->params['breadcrumbs'][] = $this->title;
                     );
                 },
             ],
-
-            ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
 </div>
